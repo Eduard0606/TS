@@ -190,55 +190,108 @@
 // ющие функции для работы с таким объектом.
 
 
- let objeckt = {
-    widt:20,
-    heigh:40
- }
- function obj (){
-    console.log(objeckt)
- }
-obj()
-function obj1 (){
-    console.log(objeckt.widt)
- }
- obj1()
+const canvas = document.getElementById("canvas")
+// @ts-ignore
+const ctx = canvas?.getContext("2d")
+ctx.fillStyle = "green";
 
- function obj2 (){
-    console.log(objeckt.heigh)
- }
- obj2()
+const addWidthButton = document.getElementById('addWidth')
+const addHeightButton = document.getElementById('addHeight')
+const addWidthAndHeightButton = document.getElementById('addWidthHeight')
+const moveRightButton = document.getElementById('moveRight')
+const moveLeftButton = document.getElementById('moveLeft')
+const moveUpButton = document.getElementById('moveUp')
+const moveDownButton = document.getElementById('moveDown')
 
- function obj3 (){
-    console.log(objeckt.widt + objeckt.heigh)
-    return
+ let rect = {
+    x0:0,
+    y0:20,
+    x1:90,
+    y1:80,
  }
- obj3()
+ ctx.fillRect(rect.x0, rect.y0, getWidth(rect), getHeight(rect))
+function showCoordinates(rect:any) {
+   console.log(`(${rect.x0},${rect.y0}) (${rect.x1},${rect.y1})`)
+}
+function showRect(rect:any) {
+   // @ts-ignore
+   ctx.clearRect(0,0,canvas.width,canvas.height)
+   ctx.fillRect(rect.x0, rect.y0, getWidth(rect), getHeight(rect));
+}
+showCoordinates(rect)
 
- function obj4 (){
-    console.log(objeckt.widt + objeckt.heigh +objeckt.widt +objeckt.heigh)
-    return
- }
- obj4()
+function getWidth(rect:any) {
+   return rect.x1-rect.x0
+}
+console.log(getWidth(rect))
 
- function obj5 (){
-    objeckt.widt=50
-    console.log(objeckt.widt)
- }
- obj5()
+function getHeight(rect:any) {
+    return rect.y1-rect.y0
+}
+console.log(getHeight(rect))
 
- function obj6 (){
-    objeckt.heigh=70
-    console.log(objeckt.heigh)
- }
- obj6()
+function getArea(rect:any) {
+    return getWidth(rect)*getHeight(rect)
+}
+console.log(getArea(rect))
+function getPerimetr(rect:any) {
+    return getWidth(rect)+getHeight(rect)*2
+}
+console.log(getPerimetr(rect))
 
- let arr = [1,2,3,4,5,6,7,8,9,10]
+function addHeight(rect:any, num:number) {
+   rect.y1+=num
+   showRect(rect)
+}
+function addWidth(rect:any, num:number) {
+   rect.x1+=num
+   showRect(rect)
+}
+function moveX(rect:any, num:number) {
+   rect.x0+=num
+   rect.x1+=num
+   showRect(rect)
+}
+function moveY(rect:any, num:number) {
+   rect.y0+=num
+   rect.y1+=num
+   showRect(rect)
+}
+
+
+
+if (addHeightButton) addHeightButton.addEventListener('click',()=>{
+   addHeight(rect,5)
+})
+if (addWidthButton) addWidthButton.addEventListener('click',()=>{
+   addWidth(rect,5)
+})
+if (addWidthAndHeightButton) addWidthAndHeightButton.addEventListener('click',()=>{
+   addWidth(rect,5)
+   addHeight(rect,5)
+})
+if (moveRightButton) moveRightButton.addEventListener('click', ()=>{
+   moveX(rect,5)
+})
+if (moveLeftButton) moveLeftButton.addEventListener('click', ()=>{
+   moveX(rect,-5)
+})
+if (moveUpButton) moveUpButton.addEventListener('click', ()=>{
+   moveY(rect, -5)
+})
+if (moveDownButton) moveDownButton.addEventListener('click', ()=>{
+   moveY(rect, 5)
+})
+
+
+
+let arr = [1,2,3,4,5,6,7,8,9,10]
 
 //  Функция принимает массив и выводит его на экран.
- function arr2(){
-    console.log(arr)
- }
- arr2()
+function arr2(){
+   console.log(arr)
+}
+arr2()
 
 // Функция принимает массив и выводит только четные
 // элементы.
@@ -285,7 +338,6 @@ function del (){
 }
 del()
 
-let myarr = [100,200,300,400,500]
 // Функция принимает 2 массива и возвращает новый мас-
 // сив, в котором собраны все элементы из двух массивов
 // без повторений.
