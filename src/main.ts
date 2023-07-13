@@ -251,7 +251,7 @@ function obj1 (){
     console.log(arr3)
   }
   evenArr()
-  3
+
 // Функция принимает массив и возвращает сумму всех
 // элементов массива.
   function arr4() {
@@ -290,22 +290,22 @@ let myarr = [100,200,300,400,500]
 // сив, в котором собраны все элементы из двух массивов
 // без повторений.
 
-function newArr() {
-    let arr3 = arr.concat(myarr);
-    let unique = Array.from(new Set(arr3));
-    return unique;
-  }
-  console.log(newArr(arr, myarr));
+// function newArr() {
+//     let arr3 = arr.concat(myarr);
+//     let unique = Array.from(new Set(arr3));
+//     return unique;
+//   }
+//   console.log(newArr(arr, myarr));
 // Функция принимает 2 массива и возвращает новый массив,
 // в котором собраны общие элементы (то есть элементы,
 // которые встречаются и в первом и во втором массивах)
 // без повторений.
 
-function newArr2() {
-    let arrr = arr.filter((num) => myarr.includes(num));
-    return arrr;
-  }
-  console.log(newArr2(arr, myarr));
+// function newArr2() {
+//     let arrr = arr.filter((num) => myarr.includes(num));
+//     return arrr;
+//   }
+//   console.log(newArr2(arr, myarr));
 // Функция принимает 2 массива и возвращает новый мас-
 // сив, в котором собраны все элементы из первого массива,
 // которых нет во втором массиве.
