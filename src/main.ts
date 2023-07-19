@@ -42,7 +42,7 @@
 // купить пользователь и сколько сдачи у него останется. 
 // let user = prompt("Введите сумму денег в кошельке") as any
 // let user2 = prompt("Введите сумму одной шоколадки") as any
-    
+
 // 9. Запросите у пользователя трехзначное число и выведите 
 // его задом наперед. Для решения задачи вам понадобится 
 // оператор % (остаток от деления).
@@ -173,18 +173,155 @@
 // 7. Запросить у пользователя сумму покупки и вывести сумму 
 // к оплате со скидкой: от 200 до 300 – скидка будет 3%, от 300 
 // до 500 – 5%, от 500 и выше – 7%. 
+// let user = prompt("Введите сумму ")
+// let prise = 300 as any
+// let prise2 = 500 as any
+// let prise3 = 600 as any
+
+// if (user < prise ) {
+//    console.log("Скидка составляет 3%")
+// }
+// else if (user < prise2 ){
+//    console.log("Скидка составляет 5%")
+// }
+// else if (user < prise3 ){
+//    console.log("Скидка составляет 7%")
+// }
 
 // 8. Запросить у пользователя длину окружности и периметр 
-// квадрата. Определить, может ли такая окружность поместиться в указанный квадрат. 
+// квадрата. Определить, может ли такая окружность поместиться в указанный квадрат.
+// let circle = prompt("Введите длину окружности") as any 
+// let square = prompt("Введите периметр квадрата ") as any
+// if (circle < square) {
+//    console.log("Круu поместиться в квардрат")
+// }
+// else{
+//    console.log("Круг не поместиться")
+// }
+
 
 // 9. Задать пользователю 3 вопроса, в каждом вопросе по 3 варианта ответа. За каждый правильный ответ начисляется 2 
 // балла. После вопросов выведите пользователю количество 
 // набранных баллов.
+// let arg = prompt("Cколько будет 2+2?") as any
+// switch (arg) {
+//    case '2':
+//       alert('неправильно');
+//       break;
+//    case '3':
+//       alert('неправильно');
+//       break;
+//    case '4':
+//       alert('правильно');
+//       break;
+// }
+// if (arg == "4") {
+//    alert("Вам начислено 2 бонуса")
+// }
+// let arg2 = prompt("В каком году началась великая отечественная война") as any
+// switch (arg2) {
+//    case '1945':
+//       alert('правильно');
+//       break;
+//    case '1946':
+//       alert('неправильно');
+//       break;
+//    case '1947':
+//       alert('неправильно');
+//       break;
+// }
+// if (arg2 == "1945") {
+//    alert("Вам начислено 2 бонуса")
+// }
+// let arg3 = prompt("Как на английском будет Яблоко") as any
+// switch (arg3) {
+//    case 'apple':
+//       alert('правильно');
+//       break;
+//    case 'aple':
+//       alert('неправильно');
+//       break;
+//    case 'orange':
+//       alert('неправильно');
+//       break;
+// }
+// if (arg3 == "apple") {
+//    alert("Вам начислено 2 бонуса")
+// }
+// if (arg == true && arg2 == true && arg3 == true ){
+
+//   alert(" У вас 6 баллов")
+// }
+
 
 // 10. Запросить дату (день, месяц, год) и вывести следующую 
 // за ней дату. Учтите возможность перехода на следующий 
 // месяц, год, а также високосный год.
+// let arg = prompt("Какой сегодня день недели") as any
+// // let arg3 = prompt("Какой сегодня год") as any
+// switch (arg) {
+//    case 'понедельник':
+//       alert('завтра вторник');
+//       break;
+//    case 'вторник':
+//       alert('завтра среда');
+//       break;
+//    case 'среда':
+//       alert('завтра четверг');
+//       break;
+//    case 'четверг':
+//       alert('завтра пятница');
+//       break;
+//    case 'пятница':
+//       alert('завтра суббота');
+//       break;
+//    case 'суббота':
+//       alert('завтра воскресенье');
+//       break;
+//    case 'воскресенье':
+//       alert('завтра понедельник');
+//       break;
+// }
+// let arg2 = prompt("Какой сегодня месяц") as any
+// switch (arg2) {
+//    case 'январь':
+//       alert('Следующий месяц февраль');
+//       break;
+//    case 'февраль':
+//       alert('Следующий месяц Март');
+//       break;
+//    case 'март':
+//       alert('Следующий месяц Апрель');
+//       break;
+//    case 'апрель':
+//       alert('Следующий месяц Май');
+//       break;
+//    case 'май':
+//       alert('Следующий месяц Июнь');
+//       break;
+//    case 'июнь':
+//       alert('Следующий месяц Июль');
+//       break;
+//    case 'июль':
+//       alert('Следующий месяц Август');
+//       break;
+//    case 'август':
+//       alert('Следующий месяц Сентябрь');
+//       break;
+//    case 'сентябрь':
+//       alert('Следующий месяц Октябрь');
+//       break;
+//    case 'октябрь':
+//       alert('Следующий месяц Ноябрь');
+//       break;
+//    case 'ноябрь':
+//       alert('Следующий месяц Декабрь');
+//       break;
+//    case 'декабрь':
+//       alert('Следующий месяц Февраль');
+//       break;
 
+// }
 // Создать объект, описывающий прямоугольник (хранит коор-
 // динаты левой верхней и правой нижней точек), и написать следу-
 // ющие функции для работы с таким объектом.
@@ -203,138 +340,138 @@ const moveLeftButton = document.getElementById('moveLeft')
 const moveUpButton = document.getElementById('moveUp')
 const moveDownButton = document.getElementById('moveDown')
 
- let rect = {
-    x0:0,
-    y0:20,
-    x1:90,
-    y1:80,
- }
- ctx.fillRect(rect.x0, rect.y0, getWidth(rect), getHeight(rect))
-function showCoordinates(rect:any) {
+let rect = {
+   x0: 0,
+   y0: 20,
+   x1: 90,
+   y1: 80,
+}
+ctx.fillRect(rect.x0, rect.y0, getWidth(rect), getHeight(rect))
+function showCoordinates(rect: any) {
    console.log(`(${rect.x0},${rect.y0}) (${rect.x1},${rect.y1})`)
 }
-function showRect(rect:any) {
+function showRect(rect: any) {
    // @ts-ignore
-   ctx.clearRect(0,0,canvas.width,canvas.height)
+   ctx.clearRect(0, 0, canvas.width, canvas.height)
    ctx.fillRect(rect.x0, rect.y0, getWidth(rect), getHeight(rect));
 }
 showCoordinates(rect)
 
-function getWidth(rect:any) {
-   return rect.x1-rect.x0
+function getWidth(rect: any) {
+   return rect.x1 - rect.x0
 }
 console.log(getWidth(rect))
 
-function getHeight(rect:any) {
-    return rect.y1-rect.y0
+function getHeight(rect: any) {
+   return rect.y1 - rect.y0
 }
 console.log(getHeight(rect))
 
-function getArea(rect:any) {
-    return getWidth(rect)*getHeight(rect)
+function getArea(rect: any) {
+   return getWidth(rect) * getHeight(rect)
 }
 console.log(getArea(rect))
-function getPerimetr(rect:any) {
-    return getWidth(rect)+getHeight(rect)*2
+function getPerimetr(rect: any) {
+   return getWidth(rect) + getHeight(rect) * 2
 }
 console.log(getPerimetr(rect))
 
-function addHeight(rect:any, num:number) {
-   rect.y1+=num
+function addHeight(rect: any, num: number) {
+   rect.y1 += num
    showRect(rect)
 }
-function addWidth(rect:any, num:number) {
-   rect.x1+=num
+function addWidth(rect: any, num: number) {
+   rect.x1 += num
    showRect(rect)
 }
-function moveX(rect:any, num:number) {
-   rect.x0+=num
-   rect.x1+=num
+function moveX(rect: any, num: number) {
+   rect.x0 += num
+   rect.x1 += num
    showRect(rect)
 }
-function moveY(rect:any, num:number) {
-   rect.y0+=num
-   rect.y1+=num
+function moveY(rect: any, num: number) {
+   rect.y0 += num
+   rect.y1 += num
    showRect(rect)
 }
 
 
 
-if (addHeightButton) addHeightButton.addEventListener('click',()=>{
-   addHeight(rect,5)
+if (addHeightButton) addHeightButton.addEventListener('click', () => {
+   addHeight(rect, 5)
 })
-if (addWidthButton) addWidthButton.addEventListener('click',()=>{
-   addWidth(rect,5)
+if (addWidthButton) addWidthButton.addEventListener('click', () => {
+   addWidth(rect, 5)
 })
-if (addWidthAndHeightButton) addWidthAndHeightButton.addEventListener('click',()=>{
-   addWidth(rect,5)
-   addHeight(rect,5)
+if (addWidthAndHeightButton) addWidthAndHeightButton.addEventListener('click', () => {
+   addWidth(rect, 5)
+   addHeight(rect, 5)
 })
-if (moveRightButton) moveRightButton.addEventListener('click', ()=>{
-   moveX(rect,5)
+if (moveRightButton) moveRightButton.addEventListener('click', () => {
+   moveX(rect, 5)
 })
-if (moveLeftButton) moveLeftButton.addEventListener('click', ()=>{
-   moveX(rect,-5)
+if (moveLeftButton) moveLeftButton.addEventListener('click', () => {
+   moveX(rect, -5)
 })
-if (moveUpButton) moveUpButton.addEventListener('click', ()=>{
+if (moveUpButton) moveUpButton.addEventListener('click', () => {
    moveY(rect, -5)
 })
-if (moveDownButton) moveDownButton.addEventListener('click', ()=>{
+if (moveDownButton) moveDownButton.addEventListener('click', () => {
    moveY(rect, 5)
 })
 
 
 
-let arr = [1,2,3,4,5,6,7,8,9,10]
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 //  Функция принимает массив и выводит его на экран.
-function arr2(){
+function arr2() {
    console.log(arr)
 }
 arr2()
 
 // Функция принимает массив и выводит только четные
 // элементы.
- function evenArr() {
-    const arr3 = [] as any[];
-    for (let index = 0; index < arr.length; index++) {
+function evenArr() {
+   const arr3 = [] as any[];
+   for (let index = 0; index < arr.length; index++) {
       const element = arr[index];
       if (element % 2 == 0) arr3.push(element);
-    }
-    console.log(arr3)
-  }
-  evenArr()
+   }
+   console.log(arr3)
+}
+evenArr()
 
 // Функция принимает массив и возвращает сумму всех
 // элементов массива.
-  function arr4() {
-    let sum = 0;
-    for (let i in arr) {
+function arr4() {
+   let sum = 0;
+   for (let i in arr) {
       sum = sum + arr[i];
-    }
-    console.log(sum)
-  }
-  arr4()
+   }
+   console.log(sum)
+}
+arr4()
 
 //   Функция принимает массив и возвращает его максималь-
 //   ный элемент.
 function getMaxOfArray() {
- Math.max(...arr);
-console.log(arr)
-  }
-  getMaxOfArray()
+   Math.max(...arr);
+   console.log(arr)
+}
+getMaxOfArray()
 // Функция добавления нового элемента в массив по ука-
 // занному индексу.
-function add(){
-    arr.push (11)
-    console.log(arr)
+function add() {
+   arr.push(11)
+   console.log(arr)
 }
 add()
 // Функция удаления элемента из массива по указанному
 // индексу.
-function del (){
-    arr.splice (0,1)
-    console.log(arr)
+function del() {
+   arr.splice(0, 1)
+   console.log(arr)
 }
 del()
 
