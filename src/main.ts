@@ -320,11 +320,88 @@
 //    case 'декабрь':
 //       alert('Следующий месяц Февраль');
 //       break;
-
 // }
-// Создать объект, описывающий прямоугольник (хранит коор-
-// динаты левой верхней и правой нижней точек), и написать следу-
-// ющие функции для работы с таким объектом.
+
+// Запросить у пользователя 10 чисел и подсчитать, сколько 
+// он ввел положительных, отрицательных и нулей. При этом 
+// также посчитать, сколько четных и нечетных. Вывести 
+// статистику на экран. Учтите, что достаточно одной переменной (не 10) для ввода чисел пользователем.
+// let a = prompt("Введите число1"), b = prompt("Введите число2"), c=prompt("Введите число3"), d=prompt("Введите число4"), e=prompt("Введите число5")
+// let num = -0
+// do{
+//    alert("Число положительное")
+// } while (a,b,c,d,e > num)
+
+
+// let x = "Альфа" 
+// show("1212")
+// function show(b){
+//    console.log("<h4>Выполнение функции</h4>")
+//    console.log("Аргумент:"+b+"</br>")
+//    console.log("Переменная:"+window.x+"</br>")
+// }
+
+// function f(plusNam){
+//    console.log("Аргумент: "+plusNam)
+//    plusNam++
+//    console.log("Аргумент: "+plusNam)
+// }
+// let nam =150
+// console.log("Переменная: "+nam) as any
+// f(nam)
+// console.log("Переменная: "+nam) as any
+
+// Подсчитать сумму всех чисел в заданном пользователем 
+// диапазоне
+// let a = Number(prompt("Введите начало диапазона",""));
+// let n = Number(prompt("Введите конец диапазона",""));
+// let sum = 0;
+
+// while(a <= n){       
+//        sum+=a;  
+//        a++;
+//     }
+
+// alert(sum)
+
+// Запросить 2 числа и найти только наибольший общий 
+// делител
+// const nod = (n, m) => {
+//    if (m !== 0) {
+//      const k = n % m;
+//      return nod(m, k);
+//    }
+//    return n;
+//  };
+
+//  alert('Введите 2 число, что бы найти НОД')
+//  let numb1 = prompt('Введите первое число');
+//  let numb2 = prompt('Введите второе число');
+//  alert('НОД чисел ' + numb1 + ' и ' + numb2 + ' будет: ' + nod(numb1, numb2));
+
+// Зарплата работника составляет $250 + 10% от продаж. 
+// Запросите общую сумму продаж за месяц и посчитайте 
+// зарплату.
+// const user = prompt("Введите общие продажи") as any
+// const money = 250
+// const money2 = 0.10
+// let user2 = user*money2
+// alert("Ваша зарплата составит "+ user2+money  )
+
+// Вывести таблицу умножения для всех чисел от 2 до 9. 
+// Каждое число необходимо умножить на числа от 1 до 10.
+
+// const user = prompt("Введите число от 1 до 10")
+// const user2= Number(user)
+// for(let i=0; i<=10;i++){
+//    console.log(user2 + "*" + i + "="+ i*user2)
+// }
+
+// . Определить количество цифр в введенном числе.
+// let user = prompt("ВВедите число") as any
+// for( let i=0; i<user.length; i++ ){
+//    console.log(String(user).length)
+// }
 
 
 const canvas = document.getElementById("canvas")
@@ -339,7 +416,9 @@ const moveRightButton = document.getElementById('moveRight')
 const moveLeftButton = document.getElementById('moveLeft')
 const moveUpButton = document.getElementById('moveUp')
 const moveDownButton = document.getElementById('moveDown')
-
+// Создать объект, описывающий прямоугольник (хранит коор-
+// динаты левой верхней и правой нижней точек), и написать следу-
+// ющие функции для работы с таким объектом.
 let rect = {
    x0: 0,
    y0: 20,
