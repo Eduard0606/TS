@@ -600,31 +600,37 @@ del()
 // ■ метод, вычисляющий длину окружности.
 // Продемонстрировать работу свойств и методов.
 
-let p = 3.14
+const PI = 3.14
 class Circle{
-   constructor(circle){
-      this.circle = 50
+   #R
+   constructor(R:number){
+      this.#R = R
    }
-   get circle(){
-      return this.circle
+   get radius(){
+      return this.#R
    }
-
-   set circle(radius){
-      this.circle = circle
+   set radius(radius){
+      this.#R = radius
    }
-
-   get circle(){
-      return this. circle
-   }
-   multi(){
-      this.circle*2
+   get diametr(){
+      return this.#R*2
    }
    square(){
-    this.circle * p
+      return this.#R**2 * Math.PI
+   }
+   perimetr(){
+      return this.#R * 2 * Math.PI
    }
 }
 
-console.log(Circle)
+const myCircle = new Circle(25)
+console.log('radius', myCircle.radius)
+myCircle.radius = 20
+console.log('radius', myCircle.radius)
+console.log('diametr', myCircle.diametr)
+console.log('square', myCircle.square())
+console.log('perimetr', myCircle.perimetr())
+
  
 
 
@@ -643,18 +649,79 @@ console.log(Circle)
 // ■ метод getHtml(), который возвращает html код в виде
 // строки, включая html код вложенных элементов.
 
-class Html {
-   constructor(){
-      tag: "p"
-      close:true
-      text: "message"
-      array:["id","label","href"]
-      style:["color:red","fonst-size:2rem","padding:20px"]
+class HtmlElement {
+   tag:string
+   single:boolean
+   text:string
+   atributes:string[] = []
+   styles:string[] = []
+   elements:HtmlElement[] = []
+   constructor(tag:string, single:boolean, text:string) {
+      this.tag = tag
+      this.single = single
+      this.text = text
    }
-   arrayAtribute(){
-      
+   addAtribute(atribute:string) {
+      this.atributes.push(atribute)
+   }
+   addStyle(style:string) {
+      this.styles.push(style)
+   }
+   unshiftElement(el:HtmlElement) {
+      if (this.single) return false
+      this.elements.unshift(el)
+   }
+   pushElement(el:HtmlElement) {
+      if (this.single) return false
+      this.elements.push(el)
+   }
+   getHtml():string {
+      if (this.single) {
+         return `<${this.tag} ${this.atributes.join(' ')} style="${this.styles.join(';')}" value="${this.text}">`
+      }
+      const begin = `<${this.tag} ${this.atributes.join(' ')} style="${this.styles.join(';')}">${this.text}`
+      const end = `</${this.tag}>`
+      return begin + this.elements.map(el=>el.getHtml()).join('') + end
    }
 }
+
+const divElement = new HtmlElement('div',false,'some text')
+
+divElement.addAtribute('id="generatedP"')
+divElement.addStyle('color:green')
+divElement.addStyle('font-size:18px')
+divElement.addStyle('padding:10px')
+
+const imgElement = new HtmlElement('img',true, '')
+imgElement.addAtribute('src="https://eduard0606.github.io/Portfolio/assets/SQsFQIo7NTM-aa1b387f.jpg"')
+imgElement.addStyle('width:100px')
+
+const aElement = new HtmlElement('a',false, 'portfolio')
+aElement.addAtribute('href="https://eduard0606.github.io/Portfolio/"')
+aElement.addAtribute('target="_blank"')
+
+const olElement = new HtmlElement('ol', false, '')
+const liElement = new HtmlElement('li', false, 'string')
+
+olElement.pushElement(liElement)
+olElement.pushElement(liElement)
+olElement.pushElement(liElement)
+olElement.pushElement(liElement)
+
+divElement.pushElement(aElement)
+divElement.unshiftElement(new HtmlElement('button', false, "i'm not work"))
+divElement.pushElement(imgElement)
+divElement.pushElement(olElement)
+
+const pElement = new HtmlElement('p',false,'hello')
+
+console.log(divElement)
+
+const renderDiv = document.getElementById('render')
+if (renderDiv) renderDiv.innerHTML = divElement.getHtml()
+if (renderDiv) renderDiv.innerHTML += pElement.getHtml()
+
+
 // class Clock {
 //    constructor({ template }) {
 //      this.template = template;
