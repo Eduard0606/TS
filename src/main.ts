@@ -589,3 +589,107 @@ del()
 // Поиск фрукта в массиве. Функция принимает название
 // фрукта и возвращает индекс найденного элемента или -1,
 // если не найден. Поиск должен быть нерегистрозависимым.
+
+// Задание 1
+// Реализовать класс, описывающий окружность. В классе должны быть следующие компоненты:
+// ■ поле, хранящее радиус окружности;
+// ■ get-свойство, возвращающее радиус окружности;
+// ■ set-свойство, устанавливающее радиус окружности;
+// ■ get-свойство, возвращающее диаметр окружности;
+// ■ метод, вычисляющий площадь окружности;
+// ■ метод, вычисляющий длину окружности.
+// Продемонстрировать работу свойств и методов.
+
+let p = 3.14
+class Circle{
+   constructor(circle){
+      this.circle = 50
+   }
+   get circle(){
+      return this.circle
+   }
+
+   set circle(radius){
+      this.circle = circle
+   }
+
+   get circle(){
+      return this. circle
+   }
+   multi(){
+      this.circle*2
+   }
+   square(){
+    this.circle * p
+   }
+}
+
+console.log(Circle)
+ 
+
+
+// Реализовать класс, описывающий html элемент.
+// Класс HtmlElement должен содержать внутри себя:
+// ■ название тега;
+// ■ самозакрывающийся тег или нет;
+// ■ текстовое содержимое;
+// ■ массив атрибутов;
+// ■ массив стилей;
+// ■ массив вложенных таких же тегов;
+// ■ метод для установки атрибута;
+// ■ метод для установки стиля;
+// ■ метод для добавления вложенного элемента в конец текущего элемента;
+// ■ метод для добавления вложенного элемента в начало текущего элемента;
+// ■ метод getHtml(), который возвращает html код в виде
+// строки, включая html код вложенных элементов.
+
+class Html {
+   constructor(){
+      tag: "p"
+      close:true
+      text: "message"
+      array:["id","label","href"]
+      style:["color:red","fonst-size:2rem","padding:20px"]
+   }
+   arrayAtribute(){
+      
+   }
+}
+// class Clock {
+//    constructor({ template }) {
+//      this.template = template;
+//    }
+ 
+//    render() {
+//      let date = new Date();
+ 
+//      let hours = date.getHours();
+//      if (hours < 10) hours = '0' + hours;
+ 
+//      let mins = date.getMinutes();
+//      if (mins < 10) mins = '0' + mins;
+ 
+//      let secs = date.getSeconds();
+//      if (secs < 10) secs = '0' + secs;
+ 
+//      let output = this.template
+//        .replace('h', hours)
+//        .replace('m', mins)
+//        .replace('s', secs);
+ 
+//      console.log(output);
+//    }
+ 
+//    stop() {
+//      clearInterval(this.timer);
+//    }
+ 
+//    start() {
+//      this.render();
+//      this.timer = setInterval(() => this.render(), 1000);
+//    }
+//  }
+ 
+ 
+//  let clock = new Clock({template: 'h:m:s'});
+//  clock.start()
