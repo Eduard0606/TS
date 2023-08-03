@@ -601,24 +601,24 @@ del()
 // Продемонстрировать работу свойств и методов.
 
 const PI = 3.14
-class Circle{
+class Circle {
    #R
-   constructor(R:number){
+   constructor(R: number) {
       this.#R = R
    }
-   get radius(){
+   get radius() {
       return this.#R
    }
-   set radius(radius){
+   set radius(radius) {
       this.#R = radius
    }
-   get diametr(){
-      return this.#R*2
+   get diametr() {
+      return this.#R * 2
    }
-   square(){
-      return this.#R**2 * Math.PI
+   square() {
+      return this.#R ** 2 * Math.PI
    }
-   perimetr(){
+   perimetr() {
       return this.#R * 2 * Math.PI
    }
 }
@@ -631,7 +631,7 @@ console.log('diametr', myCircle.diametr)
 console.log('square', myCircle.square())
 console.log('perimetr', myCircle.perimetr())
 
- 
+
 
 
 // Реализовать класс, описывающий html элемент.
@@ -650,53 +650,53 @@ console.log('perimetr', myCircle.perimetr())
 // строки, включая html код вложенных элементов.
 
 class HtmlElement {
-   tag:string
-   single:boolean
-   text:string
-   atributes:string[] = []
-   styles:string[] = []
-   elements:HtmlElement[] = []
-   constructor(tag:string, single:boolean, text:string) {
+   tag: string
+   single: boolean
+   text: string
+   atributes: string[] = []
+   styles: string[] = []
+   elements: HtmlElement[] = []
+   constructor(tag: string, single: boolean, text: string) {
       this.tag = tag
       this.single = single
       this.text = text
    }
-   addAtribute(atribute:string) {
+   addAtribute(atribute: string) {
       this.atributes.push(atribute)
    }
-   addStyle(style:string) {
+   addStyle(style: string) {
       this.styles.push(style)
    }
-   unshiftElement(el:HtmlElement) {
+   unshiftElement(el: HtmlElement) {
       if (this.single) return false
       this.elements.unshift(el)
    }
-   pushElement(el:HtmlElement) {
+   pushElement(el: HtmlElement) {
       if (this.single) return false
       this.elements.push(el)
    }
-   getHtml():string {
+   getHtml(): string {
       if (this.single) {
          return `<${this.tag} ${this.atributes.join(' ')} style="${this.styles.join(';')}" value="${this.text}">`
       }
       const begin = `<${this.tag} ${this.atributes.join(' ')} style="${this.styles.join(';')}">${this.text}`
       const end = `</${this.tag}>`
-      return begin + this.elements.map(el=>el.getHtml()).join('') + end
+      return begin + this.elements.map(el => el.getHtml()).join('') + end
    }
 }
 
-const divElement = new HtmlElement('div',false,'some text')
+const divElement = new HtmlElement('div', false, 'some text')
 
 divElement.addAtribute('id="generatedP"')
 divElement.addStyle('color:green')
 divElement.addStyle('font-size:18px')
 divElement.addStyle('padding:10px')
 
-const imgElement = new HtmlElement('img',true, '')
-imgElement.addAtribute('src="https://eduard0606.github.io/Portfolio/assets/SQsFQIo7NTM-aa1b387f.jpg"')
+const imgElement = new HtmlElement('img', true, '')
+// imgElement.addAtribute('src="https://eduard0606.github.io/Portfolio/assets/SQsFQIo7NTM-aa1b387f.jpg"')
 imgElement.addStyle('width:100px')
 
-const aElement = new HtmlElement('a',false, 'portfolio')
+const aElement = new HtmlElement('a', false, 'portfolio')
 aElement.addAtribute('href="https://eduard0606.github.io/Portfolio/"')
 aElement.addAtribute('target="_blank"')
 
@@ -713,7 +713,7 @@ divElement.unshiftElement(new HtmlElement('button', false, "i'm not work"))
 divElement.pushElement(imgElement)
 divElement.pushElement(olElement)
 
-const pElement = new HtmlElement('p',false,'hello')
+const pElement = new HtmlElement('p', false, 'hello')
 
 console.log(divElement)
 
@@ -721,28 +721,54 @@ const renderDiv = document.getElementById('render')
 if (renderDiv) renderDiv.innerHTML = divElement.getHtml()
 if (renderDiv) renderDiv.innerHTML += pElement.getHtml()
 
-class CssClass{
-name:string
-style:[] = []
 
-constructor(name:string){
-   this.name = name
-}
+class CssClass {
+   name: string
+   style: [] = []
 
-addStyle(){
-   this.style.push()
-}
+   constructor(name: string) {
+      this.name = name
+   }
 
-delStyle(){
-   this.style.pop(style)
-}
+   addStyle() {
+      this.style.push(style)
+   }
 
-getCss() {
-   return `.${this.name}${JSON.stringify(this.style)
-     .replace(/\,/g, "; \n")
-     .replace(/"/g, "")}`;
- }
+   delStyle() {
+      this.style.pop()
+   }
+
+   getCss() {
+      return `<${this.name} ${this.style.join(' ')}`
+   }
 }
-const divElement2 = new CssClass('color:red')
-divElement2.addStyle('color:green')
-console.log(divElement2)
+ const newElem = new CssClass("")
+ newElem.getCss
+
+
+
+// Реализовать класс, описывающий блок html документ. 
+// Класс HtmlBlock должен содержать внутри себя:
+// ■ коллекцию стилей, описанных с помощью класса CssClass;
+// ■ корневой элемент, описанный с помощью класса 
+// HtmlElement;
+// ■ метод getCode(), который возвращает строку с html кодом (сначала теги style с описанием всех классов, а потом 
+// все html содержимое из корневого тега и его вложенных 
+// элементов).
+
+
+class HtmlBlock {
+   style: CssClass
+   htmlElement: HtmlElement
+
+   constructor() {
+      this.style = CssClass
+      this.htmlElement = this.htmlElement
+   }
+   getCode() {
+      return `<${this.style} ${this.htmlElement}`
+   }
+} 
+
+const newClass = new HtmlBlock()
+console.log(newClass)
