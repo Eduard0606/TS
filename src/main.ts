@@ -688,7 +688,7 @@ class HtmlElement {
 const divElement = new HtmlElement('div', false, 'some text')
 
 divElement.addAtribute('id="generatedP"')
-divElement.addStyle('color:green')
+divElement.addAtribute('class="greenColor"')
 divElement.addStyle('font-size:18px')
 divElement.addStyle('padding:10px')
 
@@ -717,20 +717,20 @@ const pElement = new HtmlElement('p', false, 'hello')
 
 console.log(divElement)
 
-const renderDiv = document.getElementById('render')
-if (renderDiv) renderDiv.innerHTML = divElement.getHtml()
-if (renderDiv) renderDiv.innerHTML += pElement.getHtml()
+// const renderDiv = document.getElementById('render')
+// if (renderDiv) renderDiv.innerHTML = divElement.getHtml()
+// if (renderDiv) renderDiv.innerHTML += pElement.getHtml()
 
 
 class CssClass {
    name: string
-   style: [] = []
+   style: string[] = []
 
    constructor(name: string) {
       this.name = name
    }
 
-   addStyle() {
+   addStyle(style: string) {
       this.style.push(style)
    }
 
@@ -739,11 +739,16 @@ class CssClass {
    }
 
    getCss() {
-      return `<${this.name} ${this.style.join(' ')}`
+      return `.${this.name} {${this.style.join(';')}}`
    }
 }
- const newElem = new CssClass("")
- newElem.getCss
+const newElem = new CssClass("redColor")
+newElem.addStyle('color:red')
+newElem.addStyle('font-size:16px')
+console.log(newElem.getCss())
+const newElem1 = new CssClass("greenColor")
+newElem1.addStyle('color:green')
+newElem1.addStyle('font-size:16px')
 
 
 
@@ -758,17 +763,49 @@ class CssClass {
 
 
 class HtmlBlock {
-   style: CssClass
+   style: CssClass[]
    htmlElement: HtmlElement
 
-   constructor() {
-      this.style = CssClass
-      this.htmlElement = this.htmlElement
+   constructor(s: CssClass[], el: HtmlElement) {
+      this.style = s
+      this.htmlElement = el
    }
    getCode() {
-      return `<${this.style} ${this.htmlElement}`
+      document.head.innerHTML += `<style>${this.style.map((el => el.getCss())).join('\n')}</style>`
+      document.body.innerHTML += this.htmlElement.getHtml()
    }
-} 
 
-const newClass = new HtmlBlock()
+}
+
+const newClass = new HtmlBlock([newElem, newElem1], divElement)
 console.log(newClass)
+console.log(newClass.getCode())
+
+
+
+
+function getWeekDay(date: Date) {
+   return ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'][date.getDay()]
+}
+console.log(getWeekDay(new Date()))
+
+
+
+function getLocalDay(date: Date) {
+   return ['1', '2', '3', '4', '5', '6', '7'][date.getDay()]
+}
+console.log(getLocalDay(new Date()))
+
+
+
+function getDateAgo(date: Date, days: number) {
+   return date.setDate(date.getDay() - days)
+}
+console.log(getDateAgo(new Date(), 365))
+
+
+function getLastDayOfMonth(year, month) {
+   let date = new Date(year, month)
+   return date.getDate();
+}
+console.log(getLastDayOfMonth(2010, 11))
