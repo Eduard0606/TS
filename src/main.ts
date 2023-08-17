@@ -784,28 +784,58 @@ console.log(newClass.getCode())
 
 
 
-function getWeekDay(date: Date) {
-   return ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'][date.getDay()]
+// function getWeekDay(date: Date) {
+//    return ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'][date.getDay()]
+// }
+// console.log(getWeekDay(new Date()))
+
+
+
+// function getLocalDay(date: Date) {
+//    return ['1', '2', '3', '4', '5', '6', '7'][date.getDay()]
+// }
+// console.log(getLocalDay(new Date()))
+
+
+
+// function getDateAgo(date: Date, days: number) {
+//    return date.setDate(date.getDay() - days)
+// }
+// console.log(getDateAgo(new Date(), 365))
+
+
+// function getLastDayOfMonth(year, month) {
+//    let date = new Date(year, month)
+//    return date.getDate();
+// }
+// console.log(getLastDayOfMonth(2010, 11))
+
+
+
+
+class Button {
+   width:number
+   height:number
+   text:string
+   constructor(width:number, height:number, text:string) {
+       this.width = width;
+       this.height = height;
+       this.text = text;
+   }
 }
-console.log(getWeekDay(new Date()))
-
-
-
-function getLocalDay(date: Date) {
-   return ['1', '2', '3', '4', '5', '6', '7'][date.getDay()]
+class BootstrapButton extends Button {
+   color:[]
+   constructor(width:number, height:number, text:string, color:[]) {
+       super(width, height, text)
+       this.color = color
+   }
+   showBtn(rez:any) {
+       rez.innerHTML = ''
+       let button = document.createElement('button')
+       button.style.backgroundColor = this.color
+       button.style.height = this.height
+       button.style.width = this.width
+       button.innerHTML = this.text
+       rez.appendChild(button)
+   }
 }
-console.log(getLocalDay(new Date()))
-
-
-
-function getDateAgo(date: Date, days: number) {
-   return date.setDate(date.getDay() - days)
-}
-console.log(getDateAgo(new Date(), 365))
-
-
-function getLastDayOfMonth(year, month) {
-   let date = new Date(year, month)
-   return date.getDate();
-}
-console.log(getLastDayOfMonth(2010, 11))
