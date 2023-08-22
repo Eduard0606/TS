@@ -814,28 +814,39 @@ console.log(newClass.getCode())
 
 
 class Button {
-   width:number
-   height:number
-   text:string
-   constructor(width:number, height:number, text:string) {
-       this.width = width;
-       this.height = height;
-       this.text = text;
+   width: any
+   height: any
+   text: string
+   constructor(width: number, height: number, text: string) {
+      this.width = width;
+      this.height = height;
+      this.text = text;
+   }
+   showButton() {
+      document.body.innerHTML += `<button style="width:${this.width}px;height:${this.height}px;">` + this.text + '</button>'
    }
 }
 class BootstrapButton extends Button {
-   color:[]
-   constructor(width:number, height:number, text:string, color:[]) {
-       super(width, height, text)
-       this.color = color
+   color
+   constructor(width: number, height: number, text: string, color:string) {
+      super(width, height, text)
+      this.color = color
    }
-   showBtn(rez:any) {
-       rez.innerHTML = ''
-       let button = document.createElement('button')
-       button.style.backgroundColor = this.color
-       button.style.height = this.height
-       button.style.width = this.width
-       button.innerHTML = this.text
-       rez.appendChild(button)
+   showButton() {
+      document.body.innerHTML += `<button style="width:${this.width}px;height:${this.height}px;color:${this.color};">` + this.text + '</button>'
    }
 }
+let newButton = new BootstrapButton(80,40,'Button','red')
+
+newButton.showButton()
+newButton.color = 'blue'
+newButton.showButton()
+newButton.color = 'green'
+newButton.showButton()
+newButton.height = 200
+newButton.showButton()
+
+
+
+
+
