@@ -846,47 +846,62 @@ class PrintMachine {
   fontSize: number;
   color: string;
   fontFamily: string;
-  constructor(fontSize: number, color: string, fontfamily: string) {
+  tag:string
+  constructor(fontSize: number, color: string, fontfamily: string, tag='p') {
     this.fontSize = fontSize;
     this.color = color;
     this.fontFamily = fontfamily;
+    this.tag = tag
   }
-  print() {
+  print(text:string) {
     document.body.innerHTML +=
-      `<button style= "color:${this.color};font-family:${this.fontFamily};font-size:${this.fontSize}px;">` +
-      "some text" +
-      "</button>";
+      `<${this.tag} style="color:${this.color};font-family:${this.fontFamily};font-size:${this.fontSize}px;">${text}</${this.tag}>`
   }
 }
 let printMachineClass = new PrintMachine(40, "orange", "monospace");
-printMachineClass.print();
+printMachineClass.print('some text');
+
+const titlePrint = new PrintMachine(20, "black", "monospace", 'h2');
+const textPrint = new PrintMachine(18, "black", "monospace");
+const datePrint = new PrintMachine(16, "black", "monospace");
+
+// Реализовать класс, описывающий новость (заголовок, текст,
+// массив тегов, дата публикации). В классе необходимо реализовать
+// один метод print, который выводит всю информацию в таком
+// виде, как на рисунке 1
+// Обратите внимание на то, как выводится дата:
+// ■ если с даты публикации прошло менее дня, то выводится
+// «сегодня»;
+// ■ если с даты публикации прошло менее недели, то выво-
+// дится «N дней назад»;
+// ■ в остальных случаях, полная дата в формате «дд.мм.гггг».
 
 class News {
   title: string;
   text: string;
   publicationDate: Date;
-  arrayOfTag: string = []
-  padding:number
-  margin:number
-
-  constructor(title: string, text: string, publicationDate: Date, arrayOfTag:string,padding:number,margin:number) {
+  arrayOfTag: string[] = []
+ 
+  constructor(title: string, text: string, publicationDate: Date, arrayOfTag:string[]) {
     this.title = title;
     this.text = text;
     this.publicationDate = publicationDate;
     this.arrayOfTag = arrayOfTag
-    this.padding = padding
-    this.margin = margin
   }
   
+  get printDate() {
+    return
+  }
+
   print() {
-    document.body.innerHTML +=
-    "<"+this.arrayOfTag+">"+this.title+"</"+this.arrayOfTag+">"+this.publicationDate+"</br>"+
-      this.text
-      
+    titlePrint.print(this.title)  
+    datePrint.print(this.printDate)  
+    textPrint.print(this.text)  
+    textPrint.print(this.arrayOfTag.length? '#' + this.arrayOfTag.join(' #'):'')  
   }
 }
 //@ts-ignore
-let newsBlock = new News("Новости", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo saepe maxime non ea quae in, illo hic quia eum reiciendis quod temporibus quos neque impedit mollitia pariatur cum minima corrupti.", new Date().toLocaleDateString('en-GB'),['h1']);
+let newsBlock = new News("Новости", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo saepe maxime non ea quae in, illo hic quia eum reiciendis quod temporibus quos neque impedit mollitia pariatur cum minima corrupti.", new Date(),['h1','werter','sdfs']);
 newsBlock.print();
 
 
