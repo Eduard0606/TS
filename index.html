@@ -1,23 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css">
-    <script type="module" src="/src/main.ts" defer></script>
-    <title>Login Form</title>
-  </head>
-  <body>
-    <canvas id="canvas"></canvas>
-    <br>
-    <button id="addWidth" >add width</button>
-    <button id="addHeight">add height</button>
-    <button id="addWidthHeight">add width and height</button>
-    <button id="moveRight">move right</button>
-    <button id="moveLeft">move left</button>
-    <button id="moveUp">move up</button>
-    <button id="moveDown">move down</button>
-    <div id="render"></div>
-  </body>
-</html>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/style.css">
+  <script type="module" src="/src/main.ts" defer></script>
+  <title>Login Form</title>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <br>
+  <button id="addWidth">add width</button>
+  <button id="addHeight">add height</button>
+  <button id="addWidthHeight">add width and height</button>
+  <button id="moveRight">move right</button>
+  <button id="moveLeft">move left</button>
+  <button id="moveUp">move up</button>
+  <button id="moveDown">move down</button>
+  <div id="render"></div>
+
+
+  <a name="list">the list</a>
+  <ul>
+    <li><a href="http://google.com">http://google.com</a></li>
+    <li><a href="/tutorial">/tutorial.html</a></li>
+    <li><a href="local/path">local/path</a></li>
+    <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+    <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+    <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+  </ul>
+  <script>
+    // добавление стиля для одной ссылки
+    let links = document.querySelectorAll('a[href]')
+    for (let link of links) {
+      if (link?.getAttribute('href').includes('://') && !link?.getAttribute('href').startsWith('http://internal.com')) {
+        if (link) link.style.color = 'orange';
+      }
+    }
+  </script>
+</body>
+
+</html>

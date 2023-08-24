@@ -892,7 +892,6 @@ class News {
   get printDate() {
     return
   }
-
   print() {
     titlePrint.print(this.title)  
     datePrint.print(this.printDate)  
@@ -903,5 +902,3 @@ class News {
 //@ts-ignore
 let newsBlock = new News("Новости", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo saepe maxime non ea quae in, illo hic quia eum reiciendis quod temporibus quos neque impedit mollitia pariatur cum minima corrupti.", new Date(),['h1','werter','sdfs']);
 newsBlock.print();
-
-

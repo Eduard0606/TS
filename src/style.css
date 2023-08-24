@@ -1,3 +1,7 @@
 .s{
     font-family: mo;
 }
+
+.external [data-external-file="orange"]{
+    color: orange;
+}
