@@ -846,14 +846,14 @@ class PrintMachine {
   fontSize: number;
   color: string;
   fontFamily: string;
-  tag:string
-  constructor(fontSize: number, color: string, fontfamily: string, tag='p') {
+  tag: string
+  constructor(fontSize: number, color: string, fontfamily: string, tag = 'p') {
     this.fontSize = fontSize;
     this.color = color;
     this.fontFamily = fontfamily;
     this.tag = tag
   }
-  print(text:string) {
+  print(text: string) {
     document.body.innerHTML +=
       `<${this.tag} style="color:${this.color};font-family:${this.fontFamily};font-size:${this.fontSize}px;">${text}</${this.tag}>`
   }
@@ -881,24 +881,36 @@ class News {
   text: string;
   publicationDate: Date;
   arrayOfTag: string[] = []
- 
-  constructor(title: string, text: string, publicationDate: Date, arrayOfTag:string[]) {
+
+  constructor(title: string, text: string, publicationDate: Date, arrayOfTag: string[]) {
     this.title = title;
     this.text = text;
     this.publicationDate = publicationDate;
     this.arrayOfTag = arrayOfTag
   }
-  
-  get printDate() {
-    return
-  }
+  get postDate() {
+    let today = new Date()
+    if (today.toLocaleDateString() == this.publicationDate.toLocaleDateString()) {
+      return 'Сегодня'
+    } else if (this.publicationDate.valueOf() > today.valueOf()-7*24*60*60*1000) {
+      const n = Math.floor((today.valueOf()-this.publicationDate.valueOf())/(1000*60*60*24)) 
+      if (n>5) {
+        return n+' дней назад'
+      }
+      return n+' дня назад'
+    } else {
+      return this.publicationDate.toLocaleDateString()
+    }
+     
+  } 
   print() {
-    titlePrint.print(this.title)  
-    datePrint.print(this.printDate)  
-    textPrint.print(this.text)  
-    textPrint.print(this.arrayOfTag.length? '#' + this.arrayOfTag.join(' #'):'')  
+    titlePrint.print(this.title)
+    datePrint.print(this.postDate)
+    textPrint.print(this.text)
+    textPrint.print(this.arrayOfTag.length ? '#' + this.arrayOfTag.join(' #') : '')
   }
 }
 //@ts-ignore
-let newsBlock = new News("Новости", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo saepe maxime non ea quae in, illo hic quia eum reiciendis quod temporibus quos neque impedit mollitia pariatur cum minima corrupti.", new Date(),['h1','werter','sdfs']);
-newsBlock.print();
+let newsBlock = new News("Новости", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo saepe maxime non ea quae in, illo hic quia eum reiciendis quod temporibus quos neque impedit mollitia pariatur cum minima corrupti.", new Date('2023-8-25'), ['h1', 'werter', 'sdfs']);
+newsBlock.print()
+
