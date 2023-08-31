@@ -940,7 +940,7 @@ let data = {
 
 function recursiveGetElement(key:string,value:any):string {
   if (Object.keys(value).length) {
-    return `<li>${key}</li><ul>${Object.entries(value).map(el=>recursiveGetElement(el[0],el[1])).join('')}</ul>`
+    return `<li>${key}<ul>${Object.entries(value).map(el=>recursiveGetElement(el[0],el[1])).join('')}</ul></li>`
   } else {
     return `<li>${key}</li>`
   }
