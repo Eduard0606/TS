@@ -901,7 +901,7 @@ class News {
     } else {
       return this.publicationDate.toLocaleDateString()
     }
-     
+  
   } 
   print() {
     titlePrint.print(this.title)
@@ -914,3 +914,41 @@ class News {
 let newsBlock = new News("Новости", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo saepe maxime non ea quae in, illo hic quia eum reiciendis quod temporibus quos neque impedit mollitia pariatur cum minima corrupti.", new Date('2023-8-25'), ['h1', 'werter', 'sdfs']);
 newsBlock.print()
 
+
+
+// let user = prompt ('Введите значение списка')
+// let ol = document.createElement('ol');
+// ol.className = 'oll'
+// ol.innerHTML = "Всем привет"
+
+let data = {
+  "Рыбы": {
+    "форель": {},
+    "лосось": {}
+  },
+  "Деревья": {
+    "Огромные": {
+      "секвойя": {},
+      "дуб": {}
+    },
+    "Цветковые": {
+      "яблоня": {},
+      "магнолия": {}
+    }
+  }
+}
+
+function recursiveGetElement(key:string,value:any):string {
+  if (Object.keys(value).length) {
+    return `<li>${key}</li><ul>${Object.entries(value).map(el=>recursiveGetElement(el[0],el[1])).join('')}</ul>`
+  } else {
+    return `<li>${key}</li>`
+  }
+}
+
+function renderList(container:HTMLElement,data:any){
+  const ul = document.createElement('ul') 
+  ul.innerHTML = Object.entries(data).map(el=>recursiveGetElement(el[0],el[1])).join('')
+  container.append(ul)
+}
+renderList(document.body, data)
