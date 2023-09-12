@@ -952,3 +952,17 @@ function renderList(container:HTMLElement,data:any){
   container.append(ul)
 }
 renderList(document.body, data)
+
+const button = document.querySelector('[data-id="myButton"]') as HTMLButtonElement
+console.log('AAAAAAAAAAAAAAAAAAAAAAA',button)
+button.onclick = function(){
+  button.hidden = true
+}
+
+const removeX = document.querySelectorAll('.X') as unknown as HTMLDivElement[]
+for (let remover of removeX) {
+  remover.addEventListener('click',function(){
+    const parent = this.parentElement
+    if (parent) parent.hidden=true
+  })
+}

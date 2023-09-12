@@ -1,7 +1,46 @@
-.s{
-    font-family: mo;
+.s {
+  font-family: mo;
 }
 
-.external [data-external-file="orange"]{
-    color: orange;
+.external [data-external-file="orange"] {
+  color: orange;
+}
+
+.container {
+  border: 2px solid black;
+  position: relative;
+}
+.X {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+.img {
+  padding: 10px;
+  width: 20px;
+  height: 20px;
+  margin: 20px;
+  background-color: black;
+}
+.cont {
+  padding: 20px;
+  width: 300px;
+  overflow: hidden;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+}
+.prev{
+    width: 50px;
+    height: 50px;
+}
+.next{
+    width: 50px;
+    height: 50px;
 }
