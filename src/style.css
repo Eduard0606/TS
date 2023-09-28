@@ -25,7 +25,7 @@
 }
 .cont {
   padding: 20px;
-  width: 300px;
+  min-width: 300px;
   overflow: hidden;
   border: 2px solid black;
   display: flex;
@@ -43,4 +43,22 @@ ul {
 .next{
     width: 50px;
     height: 50px;
+}
+td{
+  padding: 10px;
+  margin: 3px;
+  border: 1px solid black;
+}
+tr{
+  padding: 10px;
+  margin: 3px;
+  border: 1px solid black;
+}
+.iksweb{
+  user-select: none;
+}
+.like{
+  width: 100px;
+  height: 50px;
+  background-color: aqua;
 }

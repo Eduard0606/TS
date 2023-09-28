@@ -1,66 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
+    <script type="module" src="/src/main.ts" defer></script>
+    <title>Login Form</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="src/style.css">
-  <script type="module" src="/src/main.ts" defer></script>
-  <title>Login Form</title>
-</head>
+  <body>
+    <table id="grid">
+      <thead>
+        <tr>
+          <th data-type="number">Возраст</th>
+          <th data-type="string">Имя</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>5</td>
+          <td>Вася</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Петя</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>Женя</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Маша</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Илья</td>
+        </tr>
+      </tbody>
+    </table>
 
-<body>
-  <canvas id="canvas"></canvas>
-  <br>
-  <button id="addWidth">add width</button>
-  <button id="addHeight">add height</button>
-  <button id="addWidthHeight">add width and height</button>
-  <button id="moveRight">move right</button>
-  <button id="moveLeft">move left</button>
-  <button id="moveUp">move up</button>
-  <button id="moveDown">move down</button>
-  <div id="render"></div>
+    <table class="iksweb" >
+      <tbody id='tableCell'>
+        <tr>
+          <td >Bill</td>
+          <td>Gates</td>
+          <td>Microsoft</td>
+        </tr>
+        <tr>
+          <td>Timothy</td>
+          <td>Cook</td>
+          <td>Apple</td>
+        </tr>
+        <tr>
+          <td>Larry</td>
+          <td>Page</td>
+          <td>Google</td>
+        </tr>
+        <tr>
+          <td>Mark</td>
+          <td>Shalome</td>
+          <td>Facebook</td>
+        </tr>
+      </tbody>
+    </table>
 
-  <div class="container"> 
-    <h2>Осел</h2> <div class="X">X</div>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore adipisci voluptates sit quisquam dignissimos ipsum ratione, eveniet animi, tempora distinctio in minima numquam inventore reprehenderit! Aspernatur omnis delectus fugit at!
-  </div>
-  <div class="container"> 
-    <h2>Осел</h2> <div class="X">X</div>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore adipisci voluptates sit quisquam dignissimos ipsum ratione, eveniet animi, tempora distinctio in minima numquam inventore reprehenderit! Aspernatur omnis delectus fugit at!
-  </div>
-  <div class="container"> 
-    <h2>Осел</h2> <div class="X">X</div>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore adipisci voluptates sit quisquam dignissimos ipsum ratione, eveniet animi, tempora distinctio in minima numquam inventore reprehenderit! Aspernatur omnis delectus fugit at!
-  </div>
-<hr>
+<button id="like" class="like">Лайков: 0</button>
 
-  <div class="cont">
-    <button class="prev"></button>
-    <div class="cont-img">
-      <ul>
-      
-        <li><div class="img"></div></li>
-        <li><div class="img"></div></li>
-        <li><div class="img"></div></li>
-        <li><div class="img"></div></li>
-        <li><div class="img"></div></li>
-        <li><div class="img"></div></li>
-        <li><div class="img"></div></li>
-       
-      </ul>
-      <button class="next"></button>
+
+    <canvas id="canvas"></canvas>
+    <br />
+    <button id="addWidth">add width</button>
+    <button id="addHeight">add height</button>
+    <button id="addWidthHeight">add width and height</button>
+    <button id="moveRight">move right</button>
+    <button id="moveLeft">move left</button>
+    <button id="moveUp">move up</button>
+    <button id="moveDown">move down</button>
+    <div id="render"></div>
+
+    <div class="container">
+      <h2>Осел</h2>
+      <div class="X">X</div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore adipisci
+      voluptates sit quisquam dignissimos ipsum ratione, eveniet animi, tempora
+      distinctio in minima numquam inventore reprehenderit! Aspernatur omnis
+      delectus fugit at!
     </div>
-   
-  </div>
+    <div class="container">
+      <h2>Осел</h2>
+      <div class="X">X</div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore adipisci
+      voluptates sit quisquam dignissimos ipsum ratione, eveniet animi, tempora
+      distinctio in minima numquam inventore reprehenderit! Aspernatur omnis
+      delectus fugit at!
+    </div>
+    <div class="container">
+      <h2>Осел</h2>
+      <div class="X">X</div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore adipisci
+      voluptates sit quisquam dignissimos ipsum ratione, eveniet animi, tempora
+      distinctio in minima numquam inventore reprehenderit! Aspernatur omnis
+      delectus fugit at!
+    </div>
+    <hr />
 
-  <hr>
-<script>  
+    <div class="cont">
+      <button class="prev"></button>
+      <div class="cont-img">
+        <ul>
+          <li><div class="img"></div></li>
+          <li><div class="img"></div></li>
+          <li><div class="img"></div></li>
+          <li><div class="img"></div></li>
+          <li><div class="img"></div></li>
+          <li><div class="img"></div></li>
+          <li><div class="img"></div></li>
+        </ul>
+        <button class="next"></button>
+      </div>
+    </div>
 
-</script>
-  <h1>Список</h1>
+    <hr />
+    <script></script>
+    <h1>Список</h1>
 
-  <!-- <script>
+    <!-- <script>
     let ul = document.createElement('ul');
     document.body.append(ul);
 
@@ -77,7 +142,7 @@
     }
   </script> -->
 
-  <!-- <a name="list">the list</a>
+    <!-- <a name="list">the list</a>
   <ul>
     <li><a href="http://google.com">http://google.com</a></li>
     <li><a href="/tutorial">/tutorial.html</a></li>
@@ -96,14 +161,6 @@
       }
     }
   </script> -->
-  <button data-id="myButton">Нажми меня чтобы скрыть</button>
-
-  <script>  
-
-
-
-
-  </script>
-</body>
-
+    <button data-id="myButton">Нажми меня чтобы скрыть</button>
+  </body>
 </html>
