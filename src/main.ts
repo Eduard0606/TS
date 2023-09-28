@@ -989,45 +989,45 @@ for (let remover of removeX) {
   });
 }
 
-grid.onclick = function (e) {
-  if (e.target.tagName != "TH") return;
+// grid.onclick = function (e) {
+//   if (e.target.tagName != "TH") return;
 
-  let th = e.target;
-  // если ячейка TH, тогда сортировать
-  // cellIndex - это номер ячейки th:
-  //   0 для первого столбца
-  //   1 для второго и т.д.
-  sortGrid(th.cellIndex, th.dataset.type);
-};
+//   let th = e.target;
+//   // если ячейка TH, тогда сортировать
+//   // cellIndex - это номер ячейки th:
+//   //   0 для первого столбца
+//   //   1 для второго и т.д.
+//   sortGrid(th.cellIndex, th.dataset.type);
+// };
 
-function sortGrid(colNum, type) {
-  let tbody = grid.querySelector("tbody");
+// function sortGrid(colNum, type) {
+//   let tbody = grid.querySelector("tbody");
 
-  let rowsArray = Array.from(tbody.rows);
+//   let rowsArray = Array.from(tbody.rows);
 
-  // compare(a, b) сравнивает две строки, нужен для сортировки
-  let compare;
+//   // compare(a, b) сравнивает две строки, нужен для сортировки
+//   let compare;
 
-  switch (type) {
-    case "number":
-      compare = function (rowA, rowB) {
-        return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
-      };
-      break;
-    case "string":
-      compare = function (rowA, rowB) {
-        return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML
-          ? 1
-          : -1;
-      };
-      break;
-  }
+  // switch (type) {
+  //   case "number":
+  //     compare = function (rowA, rowB) {
+  //       return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
+  //     };
+  //     break;
+  //   case "string":
+  //     compare = function (rowA, rowB) {
+  //       return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML
+  //         ? 1
+  //         : -1;
+  //     };
+  //     break;
+  // }
 
   // сортировка
-  rowsArray.sort(compare);
+//   rowsArray.sort(compare);
 
-  tbody.append(...rowsArray);
-}
+//   tbody.append(...rowsArray);
+// }
 
 const table = document.getElementById("tableCell") as HTMLTableElement;
 function setColor(e: MouseEvent) {
@@ -1054,106 +1054,7 @@ function changeCount() {
   count += 1
   localStorage.count = count
   like.innerHTML = "Лайков: " + count
+  
 }
 
 like.addEventListener('click',changeCount)
-
-
-function recursiveGetElement(key: string, value: any): string {
-  if (Object.keys(value).length) {
-    return `<li>${key}<ul>${Object.entries(value)
-      .map((el) => recursiveGetElement(el[0], el[1]))
-      .join("")}</ul></li>`;
-  } else {
-    return `<li>${key}</li>`;
-  }
-}
-
-function renderList(container: HTMLElement, data: any) {
-  const ul = document.createElement("ul");
-  ul.innerHTML = Object.entries(data)
-    .map((el) => recursiveGetElement(el[0], el[1]))
-    .join("");
-  container.append(ul);
-}
-renderList(document.body, data);
-
-const button = document.querySelector(
-  '[data-id="myButton"]'
-) as HTMLButtonElement;
-console.log("AAAAAAAAAAAAAAAAAAAAAAA", button);
-button.onclick = function () {
-  button.hidden = true;
-};
-
-const removeX = document.querySelectorAll(".X") as unknown as HTMLDivElement[];
-for (let remover of removeX) {
-  remover.addEventListener("click", function () {
-    const parent = this.parentElement;
-    if (parent) parent.hidden = true;
-  });
-}
-
-let user = {
-  name: "John",
-};
-user.surname = "Smith";
-user.name = "Pite";
-delete user.name;
-console.log(user);
-
-let schedule = {
-  name: true,
-};
-function isEmpty(schedule) {
-  for (let prop in schedule) {
-    // если тело цикла начнет выполняться - значит в объекте есть свойства
-    return false;
-  }
-  return true;
-}
-console.log(isEmpty(schedule));
-
-let salaries = {
-  John: 100,
-  Ann: 160,
-  Pete: 130,
-};
-let sum = 0;
-for (let key in salaries) {
-  sum += salaries[key];
-}
-console.log(sum);
-
-let menu = {
-  width: 200,
-  height: 300,
-  title: "My menu",
-};
-
-function multiplyNumeric(menu) {
-  for (let key in menu) {
-    if (typeof menu[key] === "number") {
-      menu[key] *= 2;
-    }
-  }
-}
-multiplyNumeric(menu);
-console.log(menu);
-
-let calculator = {
-  read() {
-     this.a = +prompt('a')
-    this.b = +prompt('b')
-  },
-  sum() {
-    return this.a + this.b;
-  },
-  mul() {
-    return this.a * this.b;
-  },
-};
-calculator.read()
-alert(calculator.sum())
-alert(calculator.mul())
->>>>>>> 75f2621e2b98e7b1ab62989d5c0234563014608c
