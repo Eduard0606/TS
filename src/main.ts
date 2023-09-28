@@ -947,113 +947,38 @@ let data = {
       секвойя: {},
       дуб: {},
     },
-    Цветковые: {
-      яблоня: {},
-      магнолия: {},
-    },
-  },
-};
+    "Цветковые": {
+      "яблоня": {},
+      "магнолия": {}
+    }
+  }
+}
 
-function recursiveGetElement(key: string, value: any): string {
+function recursiveGetElement(key:string,value:any):string {
   if (Object.keys(value).length) {
-    return `<li>${key}<ul>${Object.entries(value)
-      .map((el) => recursiveGetElement(el[0], el[1]))
-      .join("")}</ul></li>`;
+    return `<li>${key}<ul>${Object.entries(value).map(el=>recursiveGetElement(el[0],el[1])).join('')}</ul></li>`
   } else {
-    return `<li>${key}</li>`;
+    return `<li>${key}</li>`
   }
 }
 
-function renderList(container: HTMLElement, data: any) {
-  const ul = document.createElement("ul");
-  ul.innerHTML = Object.entries(data)
-    .map((el) => recursiveGetElement(el[0], el[1]))
-    .join("");
-  container.append(ul);
+function renderList(container:HTMLElement,data:any){
+  const ul = document.createElement('ul') 
+  ul.innerHTML = Object.entries(data).map(el=>recursiveGetElement(el[0],el[1])).join('')
+  container.append(ul)
 }
-renderList(document.body, data);
+renderList(document.body, data)
 
-const button = document.querySelector(
-  '[data-id="myButton"]'
-) as HTMLButtonElement;
-console.log("AAAAAAAAAAAAAAAAAAAAAAA", button);
-button.onclick = function () {
-  button.hidden = true;
-};
+const button = document.querySelector('[data-id="myButton"]') as HTMLButtonElement
+console.log('AAAAAAAAAAAAAAAAAAAAAAA',button)
+button.onclick = function(){
+  button.hidden = true
+}
 
-const removeX = document.querySelectorAll(".X") as unknown as HTMLDivElement[];
+const removeX = document.querySelectorAll('.X') as unknown as HTMLDivElement[]
 for (let remover of removeX) {
-  remover.addEventListener("click", function () {
-    const parent = this.parentElement;
-    if (parent) parent.hidden = true;
-  });
+  remover.addEventListener('click',function(){
+    const parent = this.parentElement
+    if (parent) parent.hidden=true
+  })
 }
-
-grid.onclick = function (e) {
-  if (e.target.tagName != "TH") return;
-
-  let th = e.target;
-  // если ячейка TH, тогда сортировать
-  // cellIndex - это номер ячейки th:
-  //   0 для первого столбца
-  //   1 для второго и т.д.
-  sortGrid(th.cellIndex, th.dataset.type);
-};
-
-function sortGrid(colNum, type) {
-  let tbody = grid.querySelector("tbody");
-
-  let rowsArray = Array.from(tbody.rows);
-
-  // compare(a, b) сравнивает две строки, нужен для сортировки
-  let compare;
-
-  switch (type) {
-    case "number":
-      compare = function (rowA, rowB) {
-        return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
-      };
-      break;
-    case "string":
-      compare = function (rowA, rowB) {
-        return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML
-          ? 1
-          : -1;
-      };
-      break;
-  }
-
-  // сортировка
-  rowsArray.sort(compare);
-
-  tbody.append(...rowsArray);
-}
-
-const table = document.getElementById("tableCell") as HTMLTableElement;
-function setColor(e: MouseEvent) {
-  const target = e.target as unknown as HTMLElement;
-  if (e.type === "mouseover") {
-    table.oncontextmenu = function (e) {
-      return false;
-    };
-    target.style.backgroundColor = "red";
-  } else if (e.type === "mouseout") {
-    target.style.backgroundColor = "transparent";
-  }
-}
-table.addEventListener("mouseover", setColor);
-table?.addEventListener("mouseout", setColor);
-
-const like = document.getElementById(
-  "like"
-) as unknown as HTMLButtonElement;
-
-let count = +localStorage.count || 0
-like.innerHTML = "Лайков: " + count
-function changeCount() {
-  count += 1
-  localStorage.count = count
-  like.innerHTML = "Лайков: " + count
-}
-
-like.addEventListener('click',changeCount)
